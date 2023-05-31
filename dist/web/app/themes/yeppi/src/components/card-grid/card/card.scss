@@ -1,0 +1,71 @@
+.card-grid {
+
+  .card {
+    position: relative;
+    width: 100%;
+    box-shadow: 0 0 10px 0 rgba(black, .15);
+    overflow: hidden;
+
+    @include hover {
+
+      .card-image {
+
+        picture {
+          scale: 1.1;
+        }
+      }
+    }
+
+    @include from(6) {
+      max-width: 400px;
+
+      @include hover {
+
+        .card-content {
+          transform: translateY(0);
+        }
+      }
+    }
+
+    &-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+
+      @include from(6) {
+        height: 400px;
+      }
+
+      @include from(10) {
+        height: 575px;
+      }
+
+      picture {
+        width: 100%;
+        height: 100%;
+        transition: $ts $te;
+
+        img {
+          object-fit: cover;
+          height: 100%;
+        }
+      }
+    }
+
+    &-content {
+      position: absolute;
+      bottom: 0;
+      transform: translateY(70px);
+      background-color: rgba(white, .8);
+      width: 100%;
+      padding: 32px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      transition: $ts $te;
+
+      .h5 {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

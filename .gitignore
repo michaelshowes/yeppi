@@ -1,0 +1,55 @@
+# Application
+/dist/web/app/plugins/*
+!/dist/web/app/plugins/.gitkeep
+/dist/web/app/mu-plugins/*/
+/dist/web/app/themes/twentytwenty
+/dist/web/app/themes/twentythree
+/dist/web/app/upgrade
+/dist/web/app/uploads/*
+!/dist/web/app/uploads/.gitkeep
+/dist/web/app/ewww/*
+!/dist/web/app/ewww/.gitkeep
+/dist/include/drop-ins/*
+!/dist/include/drop-ins/.gitkeep
+/dist/web/app/cache
+
+# PWA
+/dist/web/service-worker.js
+/dist/web/service-worker.js.map
+/dist/web/workbox*
+
+# WordPress
+/dist/web/wp
+.htaccess
+
+# WP-CLI
+db-sync
+sql-dump-*.sql
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Vendor (e.g. Composer)
+/dist/vendor/*
+!/dist/vendor/.gitkeep
+
+# Database volume
+/data
+
+# Node Package Manager
+node_modules
+
+# Certs
+/certs/
+
+# Logs
+logs/
+
+# Custom
+.DS_Store
+.idea
+*.code-workspace
+
+/.secret

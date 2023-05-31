@@ -1,0 +1,15 @@
+@keyframes rollIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) rotate(-$base-degrees * 4);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.rollIn {
+  animation-name: rollIn;
+}

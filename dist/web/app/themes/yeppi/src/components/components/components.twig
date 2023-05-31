@@ -1,0 +1,9 @@
+{% set components = components ? components : post.meta('components') %}
+{% if components|length %}
+<div class="components">
+  {% for component in components %}
+    {{ render_component(component,) }}
+  {% endfor %}
+</div>
+{% endif %}
+

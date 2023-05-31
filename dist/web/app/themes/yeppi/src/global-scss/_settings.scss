@@ -1,0 +1,33 @@
+//  Slicer Breakpoints
+//  https://github.com/lolmaus/breakpoint-slicer
+//
+//  Breakpoint:    0      100px   200px   320px   400px   500px   600px   768px       1920px
+//                 |───────┼───────┼───────┼───────┼───────┼───────┼───────┼──── ... ───┼────────>
+//  Slice #:               1       2       3       4       5       6       7           19
+$slicer-breakpoints: 100px 200px 320px 400px 500px 600px 768px 800px 900px 1000px 1100px 1200px 1300px 1400px 1500px 1600px 1700px 1800px 1920px;
+$slicer-anti-overlap-corrections: -1px;
+
+$arial: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+$herr-von: 'Herr Von Muellerhoff', cursive;
+
+// type variables
+$body-font: $arial;
+$header-font: $arial;
+
+///////////////////////////////////////////////////////////////
+// NOTE: If you change this, you also need to change $rem-baseline
+//       in src/global-scss/helpers/mixins/_rem.scss
+///////////////////////////////////////////////////////////////
+$base-font-size: 16px;
+
+$component-margin: 120px;
+$inner-max-width: 1920px;
+
+$mobile-menu-break: 7;
+
+// radius
+$border-radius: 3px;
+
+// transitions
+$ts: .25s; // transition speed
+$te: ease-in-out; // transition ease

@@ -1,0 +1,5 @@
+.text-block {
+  @include grid-placement;
+  @include component-margin;
+  @include content-constraint(1200px);
+}

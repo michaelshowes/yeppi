@@ -1,0 +1,375 @@
+$error-color: red;
+
+fieldset {
+  padding: 0;
+  border: 0;
+  margin: 0;
+
+  legend {
+    display: block;
+    margin: 0 0 10px;
+  }
+}
+
+label {
+  display: block;
+}
+
+.form-field {
+  margin: 0 0 30px;
+
+  label {
+    margin-bottom: 10px;
+  }
+}
+
+.error-message {
+  color: $error-color;
+  @include rem(font-size, 14px);
+  @include font-weight(medium);
+  margin-top: 8px;
+}
+
+// Input Fields
+//
+// :focus      - Focus state
+//
+// Wrapper:
+// max-width: 700px;
+//
+// Markup:
+// <div class="form-field">
+//   <label>Text Input Label</label>
+//   <input type="text" placeholder="Text Input" class="{{modifier_class}}">
+// </div>
+// <div class="form-field">
+//   <label>Email Input Label</label>
+//   <input type="email" placeholder="Email Input" class="{{modifier_class}}">
+// </div>
+// <div class="form-field">
+//   <label>Password Input Label</label>
+//   <input type="password" placeholder="Password Input" class="{{modifier_class}}">
+// </div>
+// <div class="form-field">
+//   <label>Search Input Label</label>
+//   <input type="search" placeholder="Search Input" class="{{modifier_class}}">
+// </div>
+// <div class="form-field">
+//   <label>Telephone Input Label</label>
+//   <input type="tel" placeholder="Telephone Input" class="{{modifier_class}}">
+// </div>
+// <div class="form-field">
+//   <label>URL Input Label</label>
+//   <input type="url" placeholder="URL Input" class="{{modifier_class}}">
+// </div>
+// <div class="form-field">
+//   <label>Textarea Label</label>
+//   <textarea class="{{modifier_class}}" placeholder="Textarea"></textarea>
+// </div>
+//
+// Weight: -99
+//
+// Styleguide Forms.Input Fields
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='url'],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  appearance: none;
+  background-color: primary-color(white);
+  color: #666;
+  font: inherit;
+  font-size: 16px; // leave at mobile sizes to prevent iphone zoom
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  transition: $ts $te;
+
+  &::placeholder {
+    opacity: 1;
+  }
+
+  &:focus {
+    // border-color: primary-color(pink);
+    outline: none;
+
+    &::placeholder {
+      color: primary-color(pink);
+    }
+  }
+
+  &.-invalid {
+    color: $error-color;
+    border: 1px solid $error-color;
+  }
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+// Select Elements
+//
+// :focus      - Focus state
+//
+// Wrapper:
+// max-width: 700px;
+//
+// Markup:
+// <div class="form-field">
+//   <label>Select Label</label>
+//   <select class="{{modifier_class}}">
+//     <option value="option1">Option 1</option>
+//     <option value="option2">Option 2</option>
+//     <option value="option3">Option 3</option>
+//     <option value="option4">Option 4</option>
+//     <option value="option5">Option 5</option>
+//   </select>
+// </div>
+//
+// Weight: -98
+//
+// Styleguide Forms.Select Elements
+select {
+  background-image: url('../images/select-arrow-down.svg');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 15px auto;
+  text-decoration: none;
+  appearance: none;
+  padding-right: 35px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #666;
+  }
+
+  // for IE 11
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+// Checkboxes
+//
+// Wrapper:
+// max-width: 700px;
+//
+// Markup:
+// <fieldset class="form-field checks">
+//   <legend>My favorite color:</legend>
+//   <div class="check">
+//     <input type="checkbox" id="c1" name="cb" checked>
+//     <label for="c1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</label>
+//   </div>
+//   <div class="check">
+//     <input type="checkbox" id="c2" name="cb">
+//     <label for="c2">Option Two</label>
+//   </div>
+//   <div class="check">
+//     <input type="checkbox" id="c3" name="cb">
+//     <label for="c3">Option Three</label>
+//   </div>
+// </fieldset>
+//
+// Weight: -97
+//
+// Styleguide Forms.Checkboxes
+
+// Radio Buttons
+//
+// Wrapper:
+// max-width: 700px;
+//
+// Markup:
+// <fieldset class="form-field radios">
+//   <legend>My favorite color:</legend>
+//   <div class="radio">
+//     <input type="radio" id="r1" name="rad" checked>
+//     <label for="r1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</label>
+//   </div>
+//   <div class="radio">
+//     <input type="radio" id="r2" name="rad">
+//     <label for="r2">Option Two</label>
+//   </div>
+//   <div class="radio">
+//     <input type="radio" id="r3" name="rad">
+//     <label for="r3">Option Three</label>
+//   </div>
+// </fieldset>
+//
+// Weight: -96
+//
+// Styleguide Forms.Radio Buttons
+.checks,
+.radios {
+
+  legend {
+    margin: 0 0 15px;
+  }
+
+  .check,
+  .radio {
+    position: relative;
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  label {
+    cursor: pointer;
+    position: relative;
+    @include rem(font-size, 14px);
+    @include line-height(20, 14);
+    padding: 0 0 0 32px;
+    margin: 0;
+  }
+
+  .check {
+
+    label {
+
+      @include icon {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        color: transparent;
+        @include rem(font-size, 14px);
+        line-height: 18px;
+        text-align: center;
+        border: 1px solid #666;
+        transition: color $ts $te;
+      }
+    }
+  }
+
+  .radio {
+
+    label {
+
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 4px;
+        left: 3px;
+        width: 12px;
+        height: 12px;
+        line-height: 1;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        transition: background $ts $te;
+      }
+
+      &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        line-height: 1;
+        border: 1px solid #666;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  input[type='checkbox'] {
+    @include sr-text;
+
+    & + label {
+      @include icon(check, before, false);
+    }
+
+    &:focus + label,
+    & + label:hover {
+      &::before {
+        color: rgba(green, .3);
+      }
+    }
+
+    &:checked + label {
+      &::before {
+        color: green;
+      }
+    }
+  }
+
+  input[type='radio'] {
+    @include sr-text;
+
+    &:focus + label,
+    & + label:hover {
+      &::before {
+        background: rgba(green, .3);
+      }
+    }
+
+    &:checked + label {
+
+      &::before {
+        background: green;
+      }
+    }
+  }
+}
+
+// Error Validation
+//
+// Error validation is performed on the client-side by Hyperform JS. See <code>src/js/form-validation.js</code> for more info or visit Hyperform's documentation <a href="https://hyperform.js.org/docs/" target="_blank">here</a>.
+//
+// Wrapper:
+// max-width: 700px;
+//
+// Markup:
+// <form>
+//   <div class="form-field">
+//     <label for="test-full-name">Full Name</label>
+//     <input type="text" id="test-full-name" name="full-name" placeholder="Please enter your full name" required="" class="-validated -invalid">
+//     <div class="error-message">Please fill out this field.</div>
+//   </div>
+//   <div class="form-field">
+//     <label for="test-email-address">Email Address</label>
+//     <input type="email" id="test-email-address" name="email-address" placeholder="Please enter your email address" required="" class="-validated -invalid">
+//     <div class="error-message">Please fill out this field.</div>
+//   </div>
+//   <div class="form-field">
+//     <label for="test-select">Select</label>
+//     <select id="test-select" name="select" required="" class="-validated -invalid hf-user-invalid">
+//       <option value="">Select One</option>
+//       <option value="1">Option 1</option>
+//       <option value="2">Option 2</option>
+//       <option value="3">Option 3</option>
+//     </select>
+//     <div class="error-message">Please select an option.</div>
+//   </div>
+//   <div class="form-field">
+//     <label for="test-message">Message</label>
+//     <textarea id="test-message" name="message" placeholder="Write your message here..." required="" class="-validated -invalid"></textarea>
+//     <div class="error-message">Please fill out this field.</div>
+//   </div>
+// </form>
+//
+// Weight: 99
+//
+// Styleguide Forms.Error Validation

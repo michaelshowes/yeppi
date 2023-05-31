@@ -1,0 +1,43 @@
+{% import 'src/macros.twig' as macros %}
+
+<article class="site-header js-site-header" data-menu-open='false'>
+  <div class="site-header-inner">
+
+    <div class="site-header-mobile">
+
+      {# Logo #}
+      <div class="logo">
+        <a href="{{site.url}}">{% include "_svg/logo.twig" %}</a>
+      </div>
+
+      {# Hamburger Menu Button #}
+      <button class="hamburger-menu-btn js-hamburger-menu-btn"></button>
+
+      {# Hamburger Menu #}
+      {% include "components/site-header/hamburger-menu/hamburger-menu.twig" %}
+
+    </div>
+
+    <div class="site-header-desktop">
+
+      {# Menu #}
+      <ul class="main-nav">
+        {% for item in main_nav.items %}
+          <li class="main-nav-link">
+            <a href="{{ item.url }}">{{ item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      {# Logo #}
+      <div class="logo">
+        <a href="{{site.url}}">{% include "_svg/logo.twig" %}</a>
+      </div>
+
+      {# Booking Button #}
+      <a href="{{ site.url }}/?page_id=141" class="booking button">Book Now</a>
+
+    </div>
+
+  </div>
+</article>

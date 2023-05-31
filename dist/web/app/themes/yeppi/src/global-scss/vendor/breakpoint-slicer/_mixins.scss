@@ -1,0 +1,188 @@
+// sass-lint:disable empty-args
+
+// Breakpoint Mixins
+//
+// Mixins for use with <a href="https://github.com/lolmaus/breakpoint-slicer">breakpoint slicer</a>. See <code>src/scss/base/_settings.scss</code> for breakpoint definitions
+//
+// Styleguide Breakpoint Mixins
+
+
+// From
+//
+// Wraps the content block provided with a media query with min-width equal to the right edge of a slice
+//
+// $slice    = null  - A number of a slice. Should be a positive integer.
+//
+// Definition:
+// @mixin from($slice) {
+//    @include between($slice, total-slices()){
+//     @content;
+//   }
+// }
+//
+// Usage:
+// .sample {
+//   @include from(4) {
+//     display: none;
+//   }
+// }
+//
+// Compiled:
+// @media (min-width: 400px) {
+//   .sample {
+//     display: none;
+//   }
+// }
+//
+// Weight: -99
+//
+// Styleguide Breakpoint Mixins.From
+@mixin from($slice) {
+  @include between($slice, total-slices()) {
+    @content;
+  }
+}
+
+
+// To
+//
+// Wraps the content block provided with a media query with max-width equal to the right edge of a slice
+//
+// $slice    = null  - A number of a slice. Should be a positive integer.
+//
+// Definition:
+// @mixin to($slice) {
+//    @include between(1, $slice){
+//     @content;
+//   }
+// }
+//
+// Usage:
+// .sample {
+//   @include to(4) {
+//     display: none;
+//   }
+// }
+//
+// Compiled:
+// @media (max-width: 399px) {
+//   .sample {
+//     display: none;
+//   }
+// }
+//
+// Styleguide Breakpoint Mixins.To
+@mixin to($slice) {
+  @include between(1, $slice) {
+    @content;
+  }
+}
+
+
+// Between
+//
+// Wraps the content block provided with a media query with min-width equal to the left edge of the left slice and max-width equal to the right edge of the right slice
+//
+// $slice-left  = null  - A number of the left slice. Should be a positive integer.
+// $slice-right = null  - A number of the left slice. Should be a positive integer.
+//
+// Definition:
+// @mixin between($slice-left, $slice-right) {
+//   $slice-left: get-slice-id($slice-left);
+//   $slice-right: get-slice-id($slice-right);
+//   @if ($slice-left == 1) and ($slice-right == total-slices()) {
+//     @content;
+//   }
+//   @else {
+//     $context: left-bp-of-slice($slice-left);
+//     @if $slice-right < total-slices() {
+//       $right: right-bp-of-slice($slice-right);
+//       $context: append($context, $right);
+//     }
+//     @include breakpoint($context) {
+//        @content;
+//     }
+//   }
+// }
+//
+// Usage:
+// .sample {
+//   @include between(4,5) {
+//     display: none;
+//   }
+// }
+//
+// Compiled:
+// @media (min-width: 400px) and (max-width: 599px) {
+//   .sample {
+//     display: none;
+//   }
+// }
+//
+// Styleguide Breakpoint Mixins.Between
+@mixin between($slice-left, $slice-right) {
+
+  // Parsing slice names.
+  $slice-left: get-slice-id($slice-left);
+  $slice-right: get-slice-id($slice-right);
+
+  // If the slices provided are the first and the last one,
+  // the breakpoint becomes meaningless
+  @if ($slice-left == 1) and ($slice-right == total-slices()) {
+    //Thus, don't wrap the code block with a media query
+    @content;
+  }
+
+  @else {
+    // Retrieving the left edge of the left slice
+    $context: left-bp-of-slice($slice-left);
+
+    // Retrieving the right edge of the slice
+    // unless the slice is the last one
+    @if $slice-right < total-slices() {
+      $right: right-bp-of-slice($slice-right);
+      $context: append($context, $right);
+    }
+
+    // Setting the breakpoint
+    @include breakpoint($context) {
+      @content;
+    }
+  }
+}
+
+
+
+// At
+//
+// Wraps the content block provided with a media query with min-width and max-width equal to the edges of a slice
+//
+// $slice    = null  - A number of a slice. Should be a positive integer.
+//
+// Definition:
+// @mixin at($slice) {
+//    @include between($slice, $slice){
+//     @content;
+//   }
+// }
+//
+// Usage:
+// .sample {
+//   @include at(4) {
+//     display: none;
+//   }
+// }
+//
+// Compiled:
+// @media (min-width: 400px) and (max-width: 499px) {
+//   .sample {
+//     display: none;
+//   }
+// }
+//
+// Styleguide Breakpoint Mixins.At
+@mixin at($slice) {
+  @include between($slice, $slice) {
+    @content;
+  }
+}

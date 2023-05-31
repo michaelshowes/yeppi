@@ -1,0 +1,68 @@
+// IcoMoon font declaration
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.woff2?be36rz') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Icomoon variables
+$icons: (
+  caret-left:  '\e408',
+  caret-right: '\e409',
+  caret-up:    '\e5ce',
+  caret-down:  '\e5cf',
+  close:       '\e5cd',
+  check:       '\f00c',
+  email:       '\e900',
+  phone:       '\e942',
+  location:    '\e947',
+  search:      '\f002',
+  menu:        '\e902',
+  home:        '\e901',
+  facebook:    '\ea90',
+  instagram:   '\ea92',
+  twitter:     '\ea96',
+  youtube:     '\ea9d',
+  linkedin:    '\eaca'
+);
+
+@each $icon, $content in $icons {
+  .icon-#{$icon} {
+
+    &::before {
+      content: '#{$content}';
+      @include icomoon;
+    }
+  }
+}
+
+// Site Icons
+//
+// Icons:
+// caret-left:  icon-caret-left
+// caret-right: icon-caret-right
+// caret-up:    icon-caret-up
+// caret-down:  icon-caret-down
+// close:       icon-close
+// check:       icon-check
+// email:       icon-email
+// phone:       icon-phone
+// location:    icon-location
+// search:      icon-search
+// menu:        icon-menu
+// home:        icon-home
+//
+// Styleguide Icons.Site Icons
+
+// Social Media Icons
+//
+// Icons:
+// facebook:    icon-facebook
+// instagram:   icon-instagram
+// twitter:     icon-twitter
+// youtube:     icon-youtube
+// linkedin:    icon-linkedin
+//
+// Styleguide Icons.Social Media Icons

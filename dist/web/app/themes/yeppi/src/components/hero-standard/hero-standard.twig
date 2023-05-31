@@ -1,0 +1,20 @@
+{% import 'src/macros.twig' as macros %}
+{% set hero = post.meta('standard_hero') %}
+
+<article class="hero-standard">
+
+  {# Background #}
+  <div class="hero-standard-background">
+    <div class="hero-standard-background-overlay"></div>
+    {# {{ macros.image(hero.image) }} #}
+    <img src="{{ hero.image.url }}" alt="">
+  </div>
+
+  <div class="hero-standard-inner">
+    <div class="header" data-animation="fadeIn">
+      <h1 class="h1" data-animation="fadeInUp">{{ hero.title }}</h1>
+      <div data-animation="fadeInUp" data-animation-delay="200">{{ hero.text }}</div>
+    </div>
+  </div>
+
+</article>

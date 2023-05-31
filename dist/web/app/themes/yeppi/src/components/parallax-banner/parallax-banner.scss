@@ -1,0 +1,27 @@
+.parallax-banner {
+  @include grid-placement(full-bleed);
+  position: relative;
+  // min-height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  isolation: isolate;
+  padding: is-clamp(40px, 4vw, 80px) 20px;
+
+  .background-overlay {
+    @include absolute(0, 0, 0, 0);
+    backdrop-filter: blur(5px);
+    background-color: rgba(black, .6);
+    z-index: -1;
+  }
+
+  &-inner {
+    @include content-constraint(1200px);
+    text-align: center;
+    color: white;
+
+    .text {
+      margin-bottom: 40px;
+    }
+  }
+}

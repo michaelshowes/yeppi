@@ -1,0 +1,97 @@
+{
+  "name": "interactivestrategies/sabin",
+  "type": "project",
+  "license": "MIT",
+  "description": "Custom WordPress solution for Sabin Vaccine Institute",
+  "homepage": "https://www.interactivestrategies.com",
+  "config": {
+    "preferred-install": "dist",
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/installers": true,
+      "koodimonni/composer-dropin-installer": true,
+      "roots/wordpress-core-installer": true,
+      "cweagans/composer-patches": true,
+      "ffraenz/private-composer-installer": false,
+      "junaidbhura/composer-wp-pro-plugins": false
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "test": [
+      "phpcs"
+    ]
+  },
+  "repositories": [{
+    "type": "composer",
+    "url": "https://wpackagist.org",
+    "only": [
+      "wpackagist-plugin/*",
+      "wpackagist-theme/*"
+    ]
+  }],
+  "require": {
+    "php": ">=8.0",
+    "composer/composer": "2.2.18",
+    "composer/installers": "^2.2",
+    "cweagans/composer-patches": "^1.7",
+    "meyfa/php-svg": "^0.11.3",
+    "oscarotero/env": "^2.1",
+    "platformsh/config-reader": "^2.4",
+    "psy/psysh": "^0.11.0",
+    "roots/bedrock-autoloader": "^1.0",
+    "roots/wordpress": "^6.0",
+    "roots/wp-config": "^1.0",
+    "roots/wp-password-bcrypt": "^1.1",
+    "timber/timber": "^1.19",
+    "twig/twig": "^2.14",
+    "vlucas/phpdotenv": "^5.4",
+    "wp-cli/wp-cli-bundle": "^2.7",
+    "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^3.0",
+    "wpackagist-plugin/acf-flexible-content-extended": "^2.0",
+    "wpackagist-plugin/acf-gravityforms-add-on": "^1.2",
+    "wpackagist-plugin/acf-image-aspect-ratio-crop": "^6.0",
+    "wpackagist-plugin/cookie-law-info": "^3.0",
+    "wpackagist-plugin/ewww-image-optimizer": "^6.3",
+    "wpackagist-plugin/mailgun": "^1.7",
+    "wpackagist-plugin/redirection": "^5.1",
+    "wpackagist-plugin/redis-cache": "^2.0",
+    "wpackagist-plugin/wordpress-seo": "^19.1",
+    "wpackagist-plugin/wps-hide-login": "^1.9",
+    "wpackagist-theme/twentytwentytwo": "^1.0"
+  },
+  "require-dev": {
+    "djboris88/timber-commented-include": "^1.1",
+    "roave/security-advisories": "dev-master",
+    "wpackagist-plugin/debug-bar": "^1.1",
+    "wpackagist-plugin/duplicate-post": "^4.2",
+    "wpackagist-plugin/yoast-test-helper": "^1.15"
+  },
+  "extra": {
+    "installer-paths": {
+      "include/drop-ins/{$name}/": [
+        "type:wordpress-dropin",
+        "wpackagist-plugin/redis-cache"
+      ],
+      "web/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin",
+        "wpackagist-plugin/acf-content-analysis-for-yoast-seo",
+        "wpackagist-plugin/acf-flexible-content-extended",
+        "wpackagist-plugin/acf-gravityforms-add-on",
+        "wpackagist-plugin/acf-image-aspect-ratio-crop",
+        "wpackagist-plugin/mailgun",
+        "wpackagist-plugin/ewww-image-optimizer",
+        "wpackagist-plugin/wordpress-seo"
+      ],
+      "web/app/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "web/app/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    },
+    "wordpress-install-dir": "web/wp"
+  }
+}

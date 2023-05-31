@@ -1,0 +1,44 @@
+{% import 'src/macros.twig' as macros %}
+{% set company = options.company_info %}
+
+<article class="contact">
+
+  {# Map #}
+  <div
+    id="map"
+    data-animation="fadeIn"
+    data-street="{{ company.address_line_1 }}"
+    data-streetTwo="{{ company.address_line_2 }}"
+    data-city="{{ company.city }}"
+    data-state="{{ company.state }}"
+    data-zip="{{ company.zip_code }}"
+  ></div>
+
+  <div class="contact-info">
+    <div class="contact-info-inner" data-animation="fadeInUp">
+
+      <div class="content">
+        <h2 class="company-name h4">{{ company.company_name }}</h2>
+        <div class="address">
+          <div class="address-1">{{ company.address_line_1 }}</div>
+          <div class="address-2">{{ company.address_line_2 }}</div>
+          <div class="city-state-zip">{{ company.city }}, {{ company.state }} {{ company.zip_code }}</div>
+        </div>
+        <div class="phone">
+          <a href="tel:{{ company.phone_number }}" class="-inverse">{{ company.phone_number }}</a>
+        </div>
+        <div class="email">
+          <a href="mailto:{{ company.email }}" class="-inverse">{{ company.email }}</a>
+        </div>
+      </div>
+      <div class="form">
+        <div class="h5">Have a question or comment?</div>
+        {% filter shortcodes %}
+          [contact-form-7 id="114" title="Contact form"]
+        {% endfilter %}
+      </div>
+
+    </div>
+  </div>
+
+</article>

@@ -1,0 +1,126 @@
+.hero-home {
+  @include grid-placement(full-bleed);
+  height: 60vh;
+
+  &-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  &-footer {
+    position: absolute;
+    left: 80px;
+    bottom: 0;
+    z-index: 1;
+
+    .footer-text {
+      @include font-clamp(rem(6px), 8.2vw, rem(80px));
+      @include font-weight(bold);
+      line-height: .66;
+      color: white;
+      opacity: .3;
+
+      span {
+        color: primary-color(pink);
+      }
+    }
+  }
+
+  // Swiper JS Settings
+  .swiper {
+    user-select: none;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &-pagination-progressbar {
+      background-color: rgba(0, 0, 0, .25);
+    }
+
+    &-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      border-radius: 0;
+
+      &-overlay {
+        @include absolute(0, 0, 0, 0);
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: rgba(black, .3);
+        z-index: 1;
+      }
+
+      &-content {
+        width: 100%;
+        max-width: 1600px;
+        height: 85%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+        box-sizing: border-box;
+        padding: 0 is-clamp(20px, 3vw, 48px);
+        align-items: flex-start;
+        justify-content: flex-end;
+        transform: translate3d(0, 0, 0);
+
+        @include from(8) {
+          height: 30%;
+        }
+
+        .eyebrow {
+          color: white !important;
+          margin-bottom: 5px;
+        }
+      }
+
+
+      &-title {
+        @include font-clamp(rem(28px), 5.6vw, rem(48px));
+        @include font-weight(semibold);
+        letter-spacing: .03em;
+        color: rgba(255, 255, 255, 1);
+      }
+
+      &-text {
+        @include font-clamp(rem(14px), 2.2vw, rem(16px));
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 1);
+      }
+
+      &-title,
+      &-text {
+        margin-top: 8px;
+        max-width: 600px;
+      }
+
+      &-image {
+        position: absolute;
+        object-fit: cover;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+
+      &-button {
+        margin-top: 30px;
+      }
+    }
+  }
+}

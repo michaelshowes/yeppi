@@ -1,0 +1,27 @@
+// Collapse Margin
+//
+// Applies a consistent negative margin-top to elemenets
+//
+// Definition:
+// @mixin collapse-margin {
+//   $mobile-margin: -$component-margin * .4;
+//   $basis: decimal-round((math.div($mobile-margin, 600px) * 100vw), 2);
+//   margin-top: is-clamp($mobile-margin, $basis, $component-margin, true);
+// }
+//
+// Usage:
+// .sample {
+//   @include collapse-margin;
+// }
+//
+// Compiled:
+// .sample {
+//   margin-top: max(-190px, min(-12.67vw, -76px));
+// }
+//
+// Styleguide Sass Mixins.Collapse Margin
+@mixin collapse-margin {
+  $mobile-margin: -$component-margin * .4;
+  $basis: decimal-round((math.div($mobile-margin, 600px) * 100vw), 2);
+  margin-top: is-clamp($mobile-margin, $basis, $component-margin, true);
+}

@@ -1,0 +1,54 @@
+{% macro link(href, text, classes) %}
+  <a{% if classes %} class="{{ classes|join(' ') }}"{% endif %} href="{{ href }}">{{ text }}</a>
+{% endmacro %}
+
+{% macro arrowLink(href, text, classes) %}
+  <a class="arrow-link{{ classes ? ' ' ~ classes|join(' ') }}" href="{{ href }}">
+    <span>{{ text }}</span>
+  </a>
+{% endmacro %}
+
+{% macro button(href, text, classes) %}
+  <a
+    class="button{{ classes ? ' ' ~ classes|join(' ') }}"
+    href="{{ href }}"
+  >{{ text }}</a>
+{% endmacro %}
+
+{# Image Macro #}
+{% macro image(image, overlay = FALSE, lazy = TRUE) %}
+  <picture
+    {# style="max-width: {{ image.width }}px;" #}
+    data-overlay="{{ overlay ? 'true' : 'false' }}"
+  >
+    <source
+      srcset="{{ image.url|towebp|relative }}"
+      type="image/webp"
+    >
+    <img
+      src="{{ image.url|relative }}"
+      width="{{ image.width }}"
+      height="{{ image.height }}"
+      alt="{{ image._wp_attachment_image_alt|escape }}"
+      type="{{ image.post_mime_type }}"
+      decoding="async"
+      loading="{{ lazy ? 'lazy' : 'eager' }}"
+    >
+  </picture>
+{% endmacro %}
+
+{# Video Macro #}
+{% macro video(video, autoplay = TRUE, controls = FALSE, loop = TRUE, muted = TRUE) %}
+  <video
+    {{ controls ? 'controls' : '' }}
+    {{ autoplay ? 'autoplay' : '' }}
+    {{ loop ? 'loop' : '' }}
+    {{ muted ? 'muted' : '' }}
+  >
+    <source
+      src="{{ video.url }}"
+      type="{{ video.mime_type }}"
+    >
+    Your browser does not support the video tag.
+  </video>
+{% endmacro %}

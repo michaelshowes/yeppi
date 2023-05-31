@@ -1,0 +1,17 @@
+@keyframes rotateIn {
+  0% {
+    transform-origin: $rotate-origin;
+    transform: rotate(-$rotate-degrees-max);
+    opacity: 0;
+  }
+
+  100% {
+    transform-origin: $rotate-origin;
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+.rotateIn {
+  animation-name: rotateIn;
+}

@@ -1,0 +1,133 @@
+{% import 'macros.twig' as macros %}
+{% set hero = post.meta('home_hero') %}
+
+<article class="hero-home">
+  <div class="hero-home-inner">
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+
+        {% for item in hero %}
+          <div class="swiper-slide">
+            <div class="swiper-slide-overlay"></div>
+            <img
+              class="swiper-slide-image"
+              data-swiper-parallax="40%"
+              src="{{ item.image.url }}"
+            />
+
+            <div class="swiper-slide-content">
+
+              <div class="eyebrow" data-swiper-parallax="-150">
+                {{ item.eyebrow }}
+              </div>
+
+              <div class="swiper-slide-title" data-swiper-parallax="-350">
+                {{ item.title }}
+              </div>
+
+              {% if item.text %}
+                <div class="swiper-slide-text" data-swiper-parallax="-850">
+                  {{ item.text }}
+                </div>
+              {% endif %}
+
+              {% if item.button %}
+                <a href="{{ item.button.url }}" class="swiper-slide-button button" data-swiper-parallax="-1350">
+                  {{ item.button.title }}
+                </a>
+              {% endif %}
+
+            </div>
+
+          </div>
+        {% endfor %}
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    {# <div class="hero-home-footer">
+      <div class="footer-text">YEPP<span>i</span></div>
+    </div> #}
+
+
+{#
+    <div class="fifty-fifty-container">
+
+      <div class="content-wrapper">
+        <div class="content">
+          <div class="swiper content-swiper">
+            <div class="swiper-wrapper">
+              {% for item in post.meta('home_hero') %}
+                <div class="swiper-slide">
+                  <div class="slide-text">
+                    <div class="eyebrow" data-swiper-parallax="-40">
+                      {{ item.eyebrow }}
+                    </div>
+                    <div class="title h2" data-swiper-parallax="-60">
+                      {{ item.title }}
+                    </div>
+                    <div class="text" data-swiper-parallax="-80">
+                      {{ item.text }}
+                    </div>
+                    {% if item.button %}
+                      <a href="{{ item.button.url }}" class="button" data-swiper-parallax="-100">
+                        {{ item.button.title }}
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="content-footer">YEPP</div>
+      </div> #}
+
+      {# Image Slider #}
+      {# <div class="swiper image">
+        <div class="i-wrapper">
+          <div class="i-dot"></div>
+          <div class="i-bottom"></div>
+        </div>
+        <div class="swiper-wrapper">
+
+          {% for item in post.meta('home_hero') %}
+            <div class="swiper-slide">
+              <img
+                class="swiper-slide-image"
+                data-swiper-parallax="40%"
+                src="{{ item.image.url }}"
+              />
+            </div>
+          {% endfor %}
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+
+    <div class="hero-home-footer"></div> #}
+
+  </div>
+</article>
+
+<script>
+  const swiper = new Swiper('.swiper', { // eslint-disable-line no-unused-vars, no-undef
+    modules: [Parallax, EffectShutters],
+    effect: 'shutters',
+    shuttersEffect: { split: 8 },
+    speed: 2000,
+    pagination: {
+      hideOnClick: false,
+      clickable: true,
+      el: '.swiper-pagination'
+    },
+    autoplay: { enabled: true, delay: 2000, disableOnInteraction: false },
+    parallax: { enabled: true }
+  });
+</script>
+
+

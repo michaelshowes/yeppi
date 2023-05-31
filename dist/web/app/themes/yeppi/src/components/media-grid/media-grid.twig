@@ -1,0 +1,36 @@
+{% import 'macros.twig' as macros %}
+
+<article class="media-grid">
+
+  <div class="accent"></div>
+
+  <div class="media-grid-inner">
+
+  {% for item in component.grid_items %}
+  {% set img = Image(item.image) %}
+
+    <div class="media-grid-item js-link-event">
+      <div class="content">
+        <h3 class="title">{{ item.title }}</h3>
+        <div class="text">{{ item.text }}</div>
+        <a href="{{ item.link.url }}" class="js-link-event-link">Read More</a>
+      </div>
+      {% if item.image %}
+        {# Image #}
+        {{ macros.image(img) }}
+      {% else %}
+        {# Video #}
+        {{ macros.video(item.video) }}
+      {% endif %}
+    </div>
+
+  {% endfor %}
+
+  <div class="service-list">
+  </div>
+
+  </div>
+
+</article>
+
+

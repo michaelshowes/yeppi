@@ -1,0 +1,37 @@
+@keyframes hinge {
+  0% {
+    transform: rotate(0);
+    transform-origin: $hinge-origin;
+    animation-timing-function: $base-timing-function-in-out;
+  }
+
+  20%,
+  60% {
+    transform: rotate($hinge-degrees-max);
+    transform-origin: $hinge-origin;
+    animation-timing-function: $base-timing-function-in-out;
+  }
+
+  40% {
+    transform: rotate($base-degrees * 2);
+    transform-origin: $hinge-origin;
+    animation-timing-function: $base-timing-function-in-out;
+  }
+
+  80% {
+    transform: rotate($base-degrees * 2) translateY(0);
+    opacity: 1;
+    transform-origin: $hinge-origin;
+    animation-timing-function: $base-timing-function-in-out;
+  }
+
+  100% {
+    transform: translateY($hinge-translate);
+    opacity: 0;
+  }
+}
+
+.hinge {
+  animation-name: hinge;
+  animation-duration: calc(#{$base-duration} * 2);
+}

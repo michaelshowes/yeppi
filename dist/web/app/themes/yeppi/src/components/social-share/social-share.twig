@@ -1,0 +1,12 @@
+{% set subject = 'From Yeppi Nails – '|t ~ post.title %}
+{# {% set body = 'Hi there – \n\nI thought you would be interested in this content from Fairtrade America:\n\n'|t ~ post.link %} #}
+
+<aside class="social-share">
+  <div class="social-share-title">{{ 'Share'|t }}</div>
+  <ul class="social-share-services">
+    <li><button type="button" data-service="facebook"><span class="sr-text">{{ 'Share on Facebook'|t }}</span></button></li>
+    <li><button type="button" data-service="twitter"><span class="sr-text">{{ 'Share on Twitter'|t }}</span></button></li>
+    <li><button type="button" data-service="linkedin"><span class="sr-text">{{ 'Share on LinkedIn'|t }}</span></button></li>
+    <li><a data-service="email" href="mailto:?subject={{ subject | url_encode }}&body={{ body | url_encode }}"><span class="sr-text">{{ 'Share with Email'|t }}</span></a></li>
+  </ul>
+</aside>

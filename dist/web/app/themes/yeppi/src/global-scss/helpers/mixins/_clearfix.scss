@@ -1,0 +1,22 @@
+// Clearfix
+//
+// Clears floated children
+//
+// Definition:
+// @mixin clearfix-micro {
+//   &:after {
+//     content: '';
+//     display: block;
+//     clear: both;
+//   }
+// }
+//
+// Styleguide Sass Mixins.Clearfix
+@mixin clearfix-micro {
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}

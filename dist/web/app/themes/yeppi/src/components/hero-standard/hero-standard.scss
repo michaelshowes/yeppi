@@ -1,0 +1,41 @@
+.hero-standard {
+  @include grid-placement(full-bleed);
+  position: relative;
+  height: 300px;
+  padding: 80px 0;
+  margin-bottom: 40px;
+  isolation: isolate;
+
+  &-background {
+    @include absolute(0, 0, 0, 0);
+    z-index: -1;
+
+    &-overlay {
+      @include absolute(0, 0, 0, 0);
+      content: '';
+      background-color: rgba(black, .2);
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-inner {
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      background-color: rgba(black, 0);
+      backdrop-filter: blur(8px);
+      padding: 20px;
+      margin: 0 auto;
+    }
+  }
+}

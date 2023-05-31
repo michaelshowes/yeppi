@@ -1,0 +1,5 @@
+// NOTE: ALL direct descendants of this container MUST have a grid-column declared
+.components {
+  @extend %grid-columns;
+  @include grid-placement(full-bleed);
+}

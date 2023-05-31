@@ -1,0 +1,125 @@
+{
+	"faceted_search": {
+		"endpoint": "http://localhost:3001/api/search",
+		"meta": {
+			"url": "/search.html",
+			"implementation": "search",
+			"currentPage": 1,
+			"limit": 6,
+			"totalResults": 1023,
+			"totalPages": 171,
+			"query": "",
+			"activeFacets": [],
+      "sorting": [{
+        "label": "Date",
+        "value": "date",
+        "order": "desc"
+      }, {
+        "label": "Title",
+        "value": "title",
+        "order": "asc"
+      }],
+			"facets": [{
+        "title": "Topic",
+        "name": "topic",
+        "type": "checkboxes",
+        "enabled": true,
+        "options": [{
+          "label": "Topic 1",
+          "value": "topic-1"
+        }, {
+          "label": "Topic 2",
+          "value": "topic-2"
+        }, {
+          "label": "Topic 3",
+          "value": "topic-3"
+        }, {
+          "label": "Topic 4",
+          "value": "topic-4"
+        }]
+      }, {
+        "title": "Type",
+        "name": "type",
+        "type": "radios",
+        "enabled": true,
+        "options": [{
+          "label": "All",
+          "value": ""
+        }, {
+          "label": "Article",
+          "value": "article"
+        }, {
+          "label": "Video",
+          "value": "video"
+        }, {
+          "label": "Press Release",
+          "value": "press-release"
+        }, {
+          "label": "Webinar",
+          "value": "webinar"
+        }]
+      }]
+		},
+    "results": [{
+      "id": 1,
+      "date": "2021-07-06T17:01:54.681-04:00",
+      "title": "Suscipit Vituperata An Sumo Odio",
+      "type": "article",
+      "topic": [
+        "topic-2",
+        "topic-3"
+      ],
+      "rendered": "<article class=\"teaser js-link-event\"><div class=\"teaser-inner\"><div class=\"teaser-image\"><picture><source srcset=\"https://via.placeholder.com/210x165.webp\" type=\"image/webp\"><img src=\"https://via.placeholder.com/210x165.jpg\" alt=\"Alt Text\" loading=\"lazy\" width=\"210\" height=\"165\"></picture></div><div class=\"teaser-content\"><div class=\"teaser-meta\">Article | Topic 2, Topic 3</div><h1 class=\"teaser-title h3\"><a href=\"#\" class=\"js-link-event-link\">Suscipit Vituperata An Sumo Odio</a></h1><time>Jul 6, 2021</time><p>Natus a quasi et. Quia in eius in consectetur et magni. Eum aut quisquam illo et ipsam. Rerum nobis ipsam autem corrupti ut velit et accusantium.</p></div></div></article>"
+    }, {
+      "id": 2,
+      "date": "2021-06-29T17:01:54.681-04:00",
+      "title": "Suscipit Vituperata An Sumo Odio",
+      "type": "video",
+      "topic": [
+        "topic-3",
+        "topic-2"
+      ],
+      "rendered": "<article class=\"teaser js-link-event\"><div class=\"teaser-inner\"><div class=\"teaser-image\"><picture><source srcset=\"https://via.placeholder.com/210x165.webp\" type=\"image/webp\"><img src=\"https://via.placeholder.com/210x165.jpg\" alt=\"Alt Text\" loading=\"lazy\" width=\"210\" height=\"165\"></picture></div><div class=\"teaser-content\"><div class=\"teaser-meta\">Video | Topic 3, Topic 2</div><h1 class=\"teaser-title h3\"><a href=\"#\" class=\"js-link-event-link\">Suscipit Vituperata An Sumo Odio</a></h1><time>Jun 29, 2021</time><p>Itaque expedita delectus qui qui. Veritatis quae ex aliquid eligendi qui veritatis quis aspernatur. Aut magni laudantium quos earum odit autem dolorum. Veritatis sit animi. Facilis qui est aperiam consectetur rerum dolor qui officiis. Consectetur quibusdam tenetur qui.</p></div></div></article>"
+    }, {
+      "id": 3,
+      "date": "2021-06-22T17:01:54.681-04:00",
+      "title": "Lorem Ipsum Solor Domet",
+      "type": "press-release",
+      "topic": [
+        "topic-1",
+        "topic-4"
+      ],
+      "rendered": "<article class=\"teaser js-link-event\"><div class=\"teaser-inner\"><div class=\"teaser-content\"><div class=\"teaser-meta\">Press Release | Topic 1, Topic 4</div><h1 class=\"teaser-title h3\"><a href=\"#\" class=\"js-link-event-link\">Lorem Ipsum Solor Domet</a></h1><time>Jun 22, 2021</time><p>Et veritatis voluptatibus vero quae ipsa dicta facere occaecati. Nulla quasi voluptatem adipisci minus natus velit harum. Voluptatum et et possimus voluptates.</p></div></div></article>"
+    }, {
+      "id": 4,
+      "date": "2021-06-15T17:01:54.681-04:00",
+      "title": "Suscipit Vituperata An Sumo Odio",
+      "type": "webinar",
+      "topic": [
+        "topic-1",
+        "topic-2"
+      ],
+      "rendered": "<article class=\"teaser js-link-event\"><div class=\"teaser-inner\"><div class=\"teaser-image\"><picture><source srcset=\"https://via.placeholder.com/210x165.webp\" type=\"image/webp\"><img src=\"https://via.placeholder.com/210x165.jpg\" alt=\"Alt Text\" loading=\"lazy\" width=\"210\" height=\"165\"></picture></div><div class=\"teaser-content\"><div class=\"teaser-meta\">Webinar | Topic 1, Topic 2</div><h1 class=\"teaser-title h3\"><a href=\"#\" class=\"js-link-event-link\">Suscipit Vituperata An Sumo Odio</a></h1><time>Jun 15, 2021</time><p>Facere aperiam at ea et. Quibusdam ut quasi omnis. Sequi velit et reiciendis qui eos. A rerum esse est neque provident sit quaerat non quia.</p></div></div></article>"
+    }, {
+      "id": 5,
+      "date": "2021-06-08T17:01:54.681-04:00",
+      "title": "At Adversarium Theophrastus Vix Vero",
+      "type": "press-release",
+      "topic": [
+        "topic-1",
+        "topic-4"
+      ],
+      "rendered": "<article class=\"teaser js-link-event\"><div class=\"teaser-inner\"><div class=\"teaser-image\"><picture><source srcset=\"https://via.placeholder.com/210x165.webp\" type=\"image/webp\"><img src=\"https://via.placeholder.com/210x165.jpg\" alt=\"Alt Text\" loading=\"lazy\" width=\"210\" height=\"165\"></picture></div><div class=\"teaser-content\"><div class=\"teaser-meta\">Press Release | Topic 1, Topic 4</div><h1 class=\"teaser-title h3\"><a href=\"#\" class=\"js-link-event-link\">At Adversarium Theophrastus Vix Vero</a></h1><time>Jun 8, 2021</time><p>Sit eos repudiandae sunt nemo occaecati voluptatibus. Doloribus amet dicta excepturi. Accusantium dolorem delectus accusamus. Magnam deleniti magni culpa et modi voluptate est culpa occaecati.</p></div></div></article>"
+    }, {
+      "id": 6,
+      "date": "2021-06-01T17:01:54.681-04:00",
+      "title": "At Adversarium Theophrastus Vix Vero",
+      "type": "video",
+      "topic": [
+        "topic-2",
+        "topic-1"
+      ],
+      "rendered": "<article class=\"teaser js-link-event\"><div class=\"teaser-inner\"><div class=\"teaser-content\"><div class=\"teaser-meta\">Video | Topic 2, Topic 1</div><h1 class=\"teaser-title h3\"><a href=\"#\" class=\"js-link-event-link\">At Adversarium Theophrastus Vix Vero</a></h1><time>Jun 1, 2021</time><p>Distinctio aut consectetur pariatur sit necessitatibus placeat aut. Sint hic velit. Illo voluptatem sint voluptatem est et.</p></div></div></article>"
+    }]
+	}
+}

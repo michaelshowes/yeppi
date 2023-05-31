@@ -1,0 +1,27 @@
+// Component Margin
+//
+// Applies a consistent margin-bottom to elemenets
+//
+// Definition:
+// @mixin component-margin {
+//   $mobile-margin: $component-margin * .4;
+//   $basis: decimal-round((math.div($mobile-margin, 600px) * 100vw), 2);
+//   margin-bottom: is-clamp($mobile-margin, $basis, $component-margin);
+// }
+//
+// Usage:
+// .sample {
+//   @include component-margin;
+// }
+//
+// Compiled:
+// .sample {
+//   margin-bottom: max(76px, min(12.67vw, 190px));
+// }
+//
+// Styleguide Sass Mixins.Component Margin
+@mixin component-margin {
+  $mobile-margin: $component-margin * .4;
+  $basis: decimal-round((math.div($mobile-margin, 600px) * 100vw), 2);
+  margin-bottom: is-clamp($mobile-margin, $basis, $component-margin);
+}

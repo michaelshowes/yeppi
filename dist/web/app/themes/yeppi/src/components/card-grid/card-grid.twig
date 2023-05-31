@@ -1,0 +1,15 @@
+{% import 'src/macros.twig' as macros %}
+
+<article class="card-grid">
+  <div class="card-grid-inner">
+
+    {% include "components/simple-header/simple-header.twig" %}
+
+    <div class="card-grid-cards">
+      {% for card in component.cards %}
+        {% include "components/card-grid/card/card.twig" %}
+      {% endfor %}
+    </div>
+
+  </div>
+</article>

@@ -1,0 +1,29 @@
+{% import 'src/macros.twig' as macros %}
+
+<article
+  class="parallax-banner"
+  style="background-image: url('{{ component.background_image.url }}');"
+>
+  <div class="background-overlay"></div>
+
+  <div class="parallax-banner-inner">
+
+    {% if component.eyebrow %}
+      <div class="eyebrow">{{ component.eyebrow }}</div>
+    {% endif %}
+
+    {% if component.title %}
+      <h2 class="h3">{{ component.title }}</h2>
+    {% endif %}
+
+    {% if component.text %}
+      <p class="text">{{ component.text }}</p>
+    {% endif %}
+
+    {% if component.button %}
+      <a href="{{ component.button.url }}" class="button">{{ component.button.title }}</a>
+    {% endif %}
+
+  </div>
+
+</article>

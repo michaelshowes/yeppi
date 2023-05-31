@@ -1,0 +1,47 @@
+// Social Share
+//
+// Markup: social-share.twig
+//
+// Styleguide Components.Social Share
+.social-share {
+  display: none;
+
+  @include from(10) {
+    display: block;
+  }
+
+  .kss-body & {
+    display: block !important;
+    position: static !important;
+  }
+
+  &-services {
+
+    li {
+
+      & + li {
+        margin-top: 10px;
+      }
+
+      button,
+      a {
+        color: black;
+        @include rem(font-size, 18px);
+        @include icon(null);
+
+        $services: facebook, twitter, linkedin, email;
+
+        @each $service in $services {
+
+          &[data-service='#{$service}'] {
+            @include icon(#{$service}, before, false);
+
+            @include hover {
+              color: sm-color(#{$service});
+            }
+          }
+        }
+      }
+    }
+  }
+}

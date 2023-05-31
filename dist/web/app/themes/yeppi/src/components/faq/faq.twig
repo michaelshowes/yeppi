@@ -1,0 +1,17 @@
+{% import 'src/macros.twig' as macros %}
+
+<article class="faq">
+  <div class="faq-inner">
+
+    {# <div class="faq-index">
+    </div>
+
+    <div class="faq-content">
+    </div> #}
+
+    {% filter shortcodes %}
+      [ultimate-faqs]
+    {% endfilter %}
+
+  </div>
+</article>

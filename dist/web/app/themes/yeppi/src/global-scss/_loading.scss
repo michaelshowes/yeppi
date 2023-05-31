@@ -1,0 +1,52 @@
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(primary-color(white), .95);
+  z-index: 99999;
+  transition: $ts $te;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background-image: url('../images/spinner.svg');
+    background-position: center;
+    background-size: 100px auto;
+    transform: translate(-50px, -50px);
+    z-index: 99999;
+  }
+
+  &-text {
+    position: absolute;
+    top: calc(50% + 60px);
+    color: primary-color(gray);
+    @include rem(font-size, 16px);
+    @include font-weight(bold);
+    letter-spacing: rem(1.5px);
+    text-transform: uppercase;
+
+    &::after {
+      content: '\2026';
+      position: absolute;
+      overflow: hidden;
+      animation: ellipsis steps(4, end) .75s infinite;
+      width: 0;
+    }
+  }
+}
+
+@keyframes ellipsis {
+  to {
+    width: 18px;
+  }
+}

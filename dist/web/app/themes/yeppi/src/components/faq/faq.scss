@@ -1,0 +1,5 @@
+.faq {
+  @include grid-placement;
+  // @include content-constraint(1200px);
+  color: black;
+}

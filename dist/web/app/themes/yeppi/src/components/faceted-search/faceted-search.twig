@@ -1,0 +1,156 @@
+{% set data = faceted_search %}
+
+{# Set a list of currently active facet values. #}
+{% set active_values = [] %}
+{% for facet in data.meta.activeFacets %}
+  {% set active_values = active_values|merge([facet.value]) %}
+{% endfor %}
+
+<article class="faceted-search"
+  data-implementation="{{ data.meta.implementation }}"
+  data-endpoint="{{ data.endpoint }}"
+  data-url="{{ data.meta.url }}"
+  data-limit="{{ data.meta.limit }}"
+  data-total-pages="{{ data.meta.totalPages }}"
+  data-total-results="{{ data.meta.totalResults }}"
+  data-facets='{{ data.meta.facets|json_encode }}'
+>
+
+  {# Sidebar #}
+  <aside class="faceted-search-sidebar">
+
+    <h3 class="h3">Filter</h3>
+
+    {# Search #}
+    <form class="faceted-search-sidebar-search">
+      <input
+        class="js-search-field"
+        type="search"
+        name="keywords"
+        placeholder="{{ 'Search...'|t }}"
+        aria-label="{{ 'Enter search keywords'|t }}"
+      >
+      <button
+        class="js-search-submit"
+        type="submit"
+        aria-label="{{ 'Search'|t }}"
+      ></button>
+    </form>
+
+    {# Facets container #}
+    <div class="faceted-search-facets">
+
+      {% for facet in data.meta.facets %}
+        {% if facet.type == 'checkboxes' %}
+          {% set cssClass = 'check' %}
+          {% set inputType = 'checkbox' %}
+        {% elseif facet.type == 'radios' %}
+          {% set cssClass = 'radio' %}
+          {% set inputType = 'radio' %}
+        {% endif %}
+
+        <fieldset
+          class="faceted-search-facet"
+          data-name="{{ facet.name }}"
+          data-type="{{ facet.type }}"
+        >
+          <legend class="faceted-search-filters-facet-title">{{ facet.title }}</legend>
+          <ul class="faceted-search-filters-facet-options {{ cssClass }}s">
+            {% for option in facet.options %}
+              {# Check the first radio button if it's value is null (for an All option) #}
+              {% if facet.type == 'radios' and loop.first and option.value == '' %}
+                {% set all_option = true %}
+                {% set checked = true %}
+              {% endif %}
+              <li class="{{ cssClass }}">
+                <input
+                  type="{{ inputType }}"
+                  id="{{ facet.name }}-{{ all_option ? 'all' : option.value }}"
+                  name="{{ facet.name }}"
+                  value="{{ option.value }}"
+                  {{ option.value in active_values or checked ? ' checked' }}
+                >
+                <label for="{{ facet.name }}-{{ all_option ? 'all' : option.value }}">{{ option.label }}</label>
+              </li>
+            {% endfor %}
+          </ul>
+        </fieldset>
+      {% endfor %}
+
+    </div>
+
+  </aside>
+
+  {# Main Content #}
+  <section class="faceted-search-content">
+
+    {# Search container header #}
+    <div class="faceted-search-content-header">
+
+      <div class="faceted-search-content-header-top">
+
+        {# Results text #}
+        <div
+          class="faceted-search-results-text"
+          aria-hidden="{{ data.meta.totalResults > 0 ? 'false' : 'true' }}"
+        >
+          <span class="faceted-search-results-text-num">{{ data.meta.totalResults|number_format }}</span>
+          <span class="faceted-search-results-text-static">&puncsp;{{ 'Results'|t }}</span>
+        </div>
+
+        {# Sorting #}
+        {% if data.meta.sorting %}
+          <div
+            class="faceted-search-results-sort"
+            aria-hidden="{{ data.meta.totalResults > 0 ? 'false' : 'true' }}"
+          >
+            <label for="sort">{{ 'Sort by'|t }}</label>
+            <select name="_sort" id="sort">
+            {% for item in data.meta.sorting %}
+              <option
+                value="{{ item.value }}"
+                data-direction="{{ item.order }}"
+                {{ loop.first ? ' selected' }}
+              >{{ item.label }}</option>
+            {% endfor %}
+            </select>
+          </div>
+        {% endif %}
+
+      </div>
+
+      {# Active Facets #}
+      <div
+        class="faceted-search-active-facets"
+        aria-hidden="{{ data.meta.activeFacets|length ? 'false' : 'true' }}"
+      >
+        <div class="faceted-search-active-facets-label">{{ 'Filtered By:'|t }}</div>
+        <div class="faceted-search-active-facets-links">
+          {% for item in data.meta.activeFacets %}
+            <button class="faceted-search-active-facets-link" type="button" name="{{ item.name }}" value="{{ item.value }}">{{ item.label }}</button>
+          {% endfor %}
+          <button class="faceted-search-active-facets-clear js-filters-clear" type="button">{{ 'Clear All'|t }}</button>
+        </div>
+      </div>
+
+    </div>
+
+    {# No results #}
+    <div
+      class="faceted-search-no-results"
+      aria-hidden="{{ data.meta.totalResults > 0 ? 'true' : 'false' }}"
+    >{{ 'Your search did not return any results. Please try another search.'|t }}</div>
+
+    {# Results #}
+    <div class="faceted-search-results">
+      {% for teaser in data.results %}
+        {{ teaser.rendered }}
+      {% endfor %}
+    </div>
+
+    {# Pagination #}
+    {% include '@components/pagination/pagination.twig' %}
+
+  </section>
+
+</article>

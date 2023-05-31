@@ -1,0 +1,216 @@
+// customize admin footer
+#wpfooter {
+
+  #footer-left {
+    display: flex;
+    align-items: center;
+
+    .footer-logo {
+      width: 30px;
+    }
+
+    span {
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  }
+}
+
+// show svg in list view of media library
+.acf-image-uploader .show-if-value img[src$=".svg"] {
+  min-height: 200px;
+  min-width: 200px;
+}
+
+// background color of white for image upload fields
+.acf-image-uploader .show-if-value img {
+  background: #fff;
+}
+
+// hide gallery and playlist from add media tab
+.media-menu {
+
+  #menu-item-gallery,
+  #menu-item-playlist,
+  #menu-item-video-playlist {
+    display: none;
+  }
+}
+
+// styling for ACF icomoon dropdowns
+.acf-icomoon-dropdown {
+
+  .select2-results {
+
+    .select2-results__option {
+      display: flex;
+      align-items: center;
+
+      .acf-icomoon-dropdown-icon {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: none;
+        top: 0 !important;
+        width: 32px;
+        font-size: 40px !important;
+        margin-right: 8px !important;
+
+        &::before {
+          flex: none;
+        }
+      }
+
+      .acf-icomoon-dropdown-text {
+        flex: 1 1 0;
+      }
+    }
+  }
+}
+
+// #newcategory_parent,
+.term-description-wrap,
+#addtag .term-parent-wrap {
+  display: none;
+}
+
+// hide parent fields for taxonomy terms
+.acf-field[data-name="term_parent"] {
+  display: none;
+}
+
+// Remove core image link fields
+.attachment-display-settings .setting.align + .setting,
+.media-embed .setting.link-to,
+.image-details .embed-media-settings .advanced-link {
+  display: none;
+}
+
+// fix relevanssi meta box fields blowing out admin bar
+#relevanssi_pin,
+#relevanssi_unpin {
+  max-width: 100%;
+}
+
+// made component modal wider
+.acf-flexible-content .layout.-modal {
+  max-width: 1200px !important;
+}
+
+.acf-fc-popup ul li a .acf-fc-popup-image {
+  padding-bottom: 56.25% !important;
+}
+
+#filebird-empty-folder-notice,
+#duplicate-post-notice,
+#ewww-image-optimizer-review,
+#njt-FileBird-review {
+  display: none !important;
+}
+
+// Hide filebird counts on default folders because of crops messing up the number
+.fbv-default-folders {
+
+  .jstree-node::after {
+    display: none;
+  }
+}
+
+.acf-field-62864e2428666 {
+
+  & > .acf-label {
+    display: none;
+  }
+
+  h3 {
+    color: #e10000;
+  }
+}
+
+body.taxonomy-category .edit-term-notes {
+  display: none;
+}
+
+.wp-admin .acf-field .char-count {
+  font-style: normal;
+}
+
+// remove headers from field groups
+#acf-group_5f0caa3ba63b0,
+#acf-group_6298f024e206c,
+#acf-group_6298fd490df33,
+#acf-group_62990db3368c0,
+#acf-group_629a63ccb41b1,
+#acf-group_629e53e186271,
+#acf-group_62bb4be61f874,
+#acf-group_62db023cb8f9b,
+#acf-group_62eacebd34815,
+#acf-group_62ed3b094ada0 {
+
+  & > .postbox-header {
+    display: none;
+  }
+}
+
+.acf-field-6298e7189065e,
+.acf-field-6298ec5c9004e {
+  padding-top: 0 !important;
+
+  & > .acf-label {
+    display: none;
+  }
+}
+
+.acf-field-5f3bc8256f685 {
+
+  & > .acf-label {
+    display: none;
+  }
+}
+
+[data-preview_size="staggered-grid"] {
+
+  .image-wrap img {
+    height: 250px !important;
+    max-height: 250px !important;
+  }
+}
+
+.acf-table-header-cont,
+.acf-table-body-cont {
+  white-space: pre-line;
+}
+
+i.mce-i-insert-callout {
+  font: normal 20px/1 dashicons;
+  padding: 0;
+  vertical-align: top;
+  speak: never;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-left: -2px;
+  padding-right: 2px;
+
+  &::before {
+    content: '\f121';
+  }
+}
+
+.menu-item-settings .acf-fields.acf-menu-item-fields > .acf-field {
+  margin: 15px 0;
+
+  &:last-child {
+    margin-bottom: 20px;
+  }
+
+  .acf-label {
+    color: #646970;
+    font-size: 13px;
+    line-height: 1.5;
+
+    label {
+      font-style: normal;
+    }
+  }
+}

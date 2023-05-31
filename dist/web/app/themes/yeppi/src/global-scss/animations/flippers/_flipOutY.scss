@@ -1,0 +1,17 @@
+@keyframes flipOutY {
+  0% {
+    transform: perspective($flipper-perspective) rotateY(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: perspective($flipper-perspective) rotateY($flipper-degrees-max);
+    opacity: 0;
+  }
+}
+
+.flipOutY {
+  backface-visibility: visible !important;
+  animation-name: flipOutY;
+  animation-duration: calc(#{$base-duration} * .75);
+}

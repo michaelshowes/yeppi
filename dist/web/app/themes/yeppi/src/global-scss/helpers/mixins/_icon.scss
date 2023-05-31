@@ -1,0 +1,99 @@
+// Icon
+//
+// Mixin to include Icomoon icons
+//
+// $icon     = null   - Name of the icon from the icons Sass map
+// $position = before - Position of the icon, either before or after
+// $styles   = true   - Boolean to output required Icomoon styling
+//
+// Definition:
+// @mixin icon($icon: null, $position: before, $styles: true) {
+//   &::#{$position} {
+//     @if $icon {
+//       content: "#{map-get($icons, $icon)}";
+//     }
+//     @if $styles {
+//       font-family: 'icomoon' !important;
+//       speak: none;
+//       font-style: normal;
+//       font-weight: normal;
+//       font-variant: normal;
+//       text-transform: none;
+//       -webkit-font-smoothing: antialiased;
+//       -moz-osx-font-smoothing: grayscale;
+//     }
+//     // Include any extra rules supplied for the pseudo-element
+//     @content;
+//   }
+// }
+//
+// Usage:
+// .facebook-link {
+//   @include icon(facebook) {
+//     color: sm-color(facebook);
+//     &:hover,
+//     &:focus {
+//       color: #333;
+//     }
+//   };
+// }
+// .social-links {
+//   a {
+//     @include icon;
+//     &.facebook {
+//       @include icon(facebook, before, false);
+//     }
+//     &.twitter {
+//       @include icon(twitter, before, false);
+//     }
+//   }
+// }
+//
+// Compiled:
+// .facebook-link::before {
+//   content: "";
+//   font-family: 'icomoon' !important;
+//   speak: none;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-variant: normal;
+//   text-transform: none;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   color: #3b5998;
+// }
+// .facebook-link::before:hover, .facebook-link::before:focus {
+//   color: #333;
+// }
+// .social-links a::before {
+//   font-family: 'icomoon' !important;
+//   speak: none;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-variant: normal;
+//   text-transform: none;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+// .social-links a.facebook::before {
+//   content: "";
+// }
+// .social-links a.twitter::before {
+//   content: "";
+// }
+//
+// Styleguide Sass Mixins.Icon
+@mixin icon($icon: null, $position: before, $styles: true) {
+  // Either a ::before or ::after pseudo-element, defaulting to ::before
+  &::#{$position} {
+    @if $icon {
+      // A particular icon has been specified
+      content: '#{map-get($icons, $icon)}';
+    }
+    @if $styles {
+      @include icomoon;
+    }
+    // Include any extra rules supplied for the pseudo-element
+    @content;
+  }
+}

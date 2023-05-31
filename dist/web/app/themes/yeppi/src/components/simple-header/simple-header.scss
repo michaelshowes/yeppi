@@ -1,0 +1,9 @@
+.simple-header {
+  @include grid-placement;
+  margin-bottom: is-clamp(40px, 4.5vw, 60px);
+
+  &-inner {
+    @include content-constraint(1200px);
+    text-align: center;
+  }
+}

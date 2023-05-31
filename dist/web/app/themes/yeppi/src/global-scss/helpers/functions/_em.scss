@@ -1,0 +1,28 @@
+// Em Units
+//
+// Convert a pixel value to em. Useful for things like letter-spacing.
+//
+// $pixel = null - The value you want to convert to em
+// $context = $base-font-size - The base font size assigned to <body>
+//
+// Function:
+// @function em($pixel, $context: $base-font-size) {
+//   @return math.div($pixel, $context) * 1em;
+// }
+//
+// Usage:
+// h1 {
+//   letter-spacing: em(1px);
+// }
+//
+// Compiled:
+// h1 {
+//   letter-spacing: 0.0625em;
+// }
+//
+// Weight: 3
+//
+// Styleguide Sass Functions.Em Units
+@function em($pixel, $context: $base-font-size) {
+  @return math.div($pixel, $context) * 1em;
+}

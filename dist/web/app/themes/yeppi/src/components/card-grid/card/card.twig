@@ -1,0 +1,15 @@
+{% import 'src/macros.twig' as macros %}
+{% set cards = component.cards %}
+
+<article class="card js-link-event">
+
+  {# Image #}
+  <div class="card-image">{{ macros.image(card.image) }}</div>
+
+  {# Content #}
+  <div class="card-content">
+    <h3 class="h5">{{ card.title }}</h3>
+    <a href="{{ card.button.url }}" class="button -inverse js-link-event-link">{{ card.button.title }}</a>
+  </div>
+
+</article>

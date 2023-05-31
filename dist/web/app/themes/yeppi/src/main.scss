@@ -1,0 +1,76 @@
+@use 'sass:math';
+
+// Required items
+@import 'breakpoint';
+@import 'global-scss/vendor/vendor';
+
+// Settings
+@import 'global-scss/settings';
+
+// Sass Mixins
+//
+// Weight: 98
+//
+// Styleguide Sass Mixins
+@import 'global-scss/helpers/mixins/**/*';
+
+
+// Sass Functions
+//
+// Weight: 99
+//
+// Styleguide Sass Functions
+@import 'global-scss/helpers/functions/**/*';
+
+
+// Colors
+//
+// Weight: -99
+//
+// Styleguide Colors
+@import 'global-scss/colors';
+
+
+// Global
+@import 'global-scss/animations/animate';
+@import 'global-scss/global';
+
+// Icons
+//
+// Weight: -98
+//
+// Styleguide Icons
+@import 'global-scss/icons';
+
+
+// Typography
+//
+// Weight: -97
+//
+// Styleguide Typography
+@import 'global-scss/type';
+
+// Loading
+@import 'global-scss/loading';
+
+
+// Form Elements
+//
+// Weight: -96
+//
+// Styleguide Forms
+@import 'global-scss/forms';
+
+
+// Layout
+@import 'global-scss/layout';
+
+
+// Components
+//
+// Weight: -95
+//
+// Styleguide Components
+@import 'global-scss/links';
+@import 'global-scss/buttons';
+@import 'components/**/*';

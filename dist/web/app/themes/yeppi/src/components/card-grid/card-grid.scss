@@ -1,0 +1,21 @@
+.card-grid {
+  @include grid-placement;
+  @include component-margin;
+
+  &-inner {
+    @include content-constraint(1240px);
+  }
+
+  &-cards {
+    display: grid;
+    gap: 20px;
+
+    @include from(6) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include from(8) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

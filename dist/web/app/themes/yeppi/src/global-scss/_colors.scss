@@ -1,0 +1,97 @@
+// Color Accessibility
+//
+// Below is a grid of all possible color combinations and whether or not they pass/fail accessibility standards. Refer to the legend below the table for more information if needed.
+//
+// Contrast:
+// primary-color(white)           : #fff - White
+// primary-color(gray, tint1)     : #ccc - Light Gray
+// primary-color(gray)            : #666 - Gray
+// primary-color(gray, shade1)    : #333 - Dark Gray
+// primary-color(black)           : #000 - Black
+// primary-color(orange, shade1)  : #c3420b - Dark Orange
+// primary-color(orange)          : #f2530f - Orange
+// primary-color(orange, tint1)   : #f5763f - Light Orange
+// secondary-color(red, shade1)   : #cc0000 - Red - Shade 1
+// secondary-color(red)           : #ff0000 - Red
+// secondary-color(red, tint1)    : #ff3333 - Red - Tint 1
+//
+// Weight: 99
+//
+// Styleguide Colors.Color Accessibility
+
+
+// Grayscale Colors
+//
+// Colors:
+// primary-color(black)           : #000 - Black
+// primary-color(gray, shade1)    : #333 - Dark Gray
+// primary-color(gray)            : #666 - Gray
+// primary-color(gray, tint1)     : #ccc - Light Gray
+// primary-color(white)           : #fff - White
+//
+// Styleguide Colors.Grayscale Colors
+
+// Primary Colors
+//
+// Colors:
+// primary-color(orange, shade1) : #c3420b - Dark Orange
+// primary-color(orange)         : #f2530f - Orange
+// primary-color(orange, tint1)  : #f5763f - Light Orange
+//
+// Styleguide Colors.Primary Colors
+$primarycolors: (
+  white: (
+    1: #fff
+  ),
+  black: (
+    1: #000
+  ),
+  gray: (
+    1: #f5f5f5,
+    2: #666,
+    3: #333,
+    5: #1a1a1a
+  ),
+  slate: (
+    1: #282d2f
+  ),
+  pink: (
+    1: #ed1e79
+  )
+);
+
+$body-color: primary-color(black);
+
+// Secondary Colors
+//
+// Colors:
+// secondary-color(red, shade1) : #cc0000 - Red - Shade 1
+// secondary-color(red)         : #ff0000 - Red
+// secondary-color(red, tint1)  : #ff3333 - Red - Tint 1
+//
+// Styleguide Colors.Secondary Colors
+$secondarycolors: (
+  red: (
+    base: #f00,
+    tint1: lighten(#f00, 10%),
+    shade1: darken(#f00, 10%)
+  )
+);
+
+// Social Media Colors
+//
+// Colors:
+// sm-color(facebook)    : #3b5998 - Facebook
+// sm-color(twitter)     : #1da1f2 - Twitter
+// sm-color(linkedin)    : #007bb5 - LinkedIn
+// sm-color(youtube)     : #f00 - YouTube
+// sm-color(instagram)   : #c32aa3 - Instagram
+//
+// Styleguide Colors.Social Media Colors
+$socialmediacolors: (
+  facebook:   #3b5998,
+  twitter:    #1da1f2,
+  linkedin:   #007bb5,
+  youtube:    #f00,
+  instagram:  #c32aa3
+);

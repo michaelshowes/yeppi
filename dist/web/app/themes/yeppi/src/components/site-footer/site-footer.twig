@@ -1,0 +1,43 @@
+{% set company = options.company_info %}
+{% set hours = options.working_hours %}
+
+<footer class="site-footer">
+  <div class="site-footer-background">
+    {% include "_svg/footer-bg.twig" %}
+  </div>
+  <div class="site-footer-inner">
+
+    {# Subscriber Banner #}
+    <div class="subscribe">
+      <div class="subscribe-header">
+        <h2 class="h2">Newsletter.</h2>
+        <div>Get deals and updates straight to your inbox!</div>
+      </div>
+      {% filter shortcodes %}
+        [mailpoet_form id="3"]
+      {% endfilter %}
+    </div>
+
+    <div class="site-footer-main">
+
+      {# Policy Links #}
+      <div class="policies">
+        {% for item in legal_nav.items %}
+          <a href="{{ item.url }}"><span>*</span>{{ item.title }}</a>
+        {% endfor %}
+        {# <span class="divider">|</span> #}
+      </div>
+
+      {# Logo #}
+      <div class="logo">
+        <a href="{{ site_url.link }}">{% include "_svg/logo.twig" %}</a>
+      </div>
+    </div>
+
+    {# Bottom #}
+    <div class="site-footer-bottom">
+      <span>{{'Copyright ' ~ "now"|date('Y') ~ ' Yeppi Nail Spa. All Rights Reserved'}}</span>
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+
+{% block body %}
+
+  {# Hero #}
+  {% include "./components/hero-standard/hero-standard.twig" %}
+
+  {% filter shortcodes %}
+
+    [mailpoet_page]
+
+  {% endfilter %}
+
+{% endblock %}

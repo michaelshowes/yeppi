@@ -1,0 +1,56 @@
+{% import 'src/macros.twig' as macros %}
+{% set services = amelia_services %}
+{% set categories = amelia_categories %}
+
+<article class="services">
+
+  <div class="services-inner">
+
+  <div class="top-image" data-animation="fadeInUp">
+    <img src="https://local.yeppinails.com/app/uploads/2022/11/9f2d496c-scaled.jpg" alt="">
+  </div>
+
+    <p class="h5" style="margin-bottom: 50px;"><span style="color: red;">Notice:</span> We do not treat acryllic nails at this time.</p>
+
+    <div class="grid">
+      {% for category in categories %}
+      {% if category.name != 'Extensions' %}
+
+        <div
+          class="service-group {{ '-' ~ category.name|lower|replace({' ': '-'})|replace({'(': ''})|replace({')': ''}) }}"
+          data-animation="fadeInUp"
+          data-animation-delay="{{ loop.index * 100 }}"
+        >
+
+          {# Category Name #}
+          <div class="h4 category">{{ category.name }}</div>
+
+          <ul>
+
+            {# Service #}
+            {% for service in services %}
+              {% if service.categoryId == category.id %}
+                <li class="service">
+                  <div class="service-name-price">
+                    <span class="name">{{ service.name|replace({'(Kids)': ''}) }}</span>
+                    {% if service.categoryId == 4 %}
+                      <span class="price">{{ '$' ~ service.price }}+</span>
+                      {% else %}
+                      <span class="price">{{ '$' ~ service.price }}</span>
+                    {% endif %}
+                  </div>
+                  {# <div class="length">{{ '~' ~ service.duration / 60 ~ ' minutes' }}</div> #}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+
+        </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+      <div class="disclaimer">*Listed times are approximate. Please plan accordingly.</div>
+  </div>
+
+</article>

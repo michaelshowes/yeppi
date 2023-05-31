@@ -1,0 +1,106 @@
+.services {
+  @include grid-placement;
+  @include component-margin;
+
+  &-inner {
+    @include content-constraint(1600px);
+  }
+
+  .top-image {
+    max-width: 240px;
+    margin: 30px auto;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 80px;
+    margin-bottom: 80px;
+
+    @include from(7) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 30px;
+    }
+
+    @include from(12) {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 60px;
+    }
+
+    .service-group {
+      background-color: white;
+      margin: 0 auto;
+      border-radius: 10px;
+      width: 100%;
+
+      .category {
+        position: relative;
+        color: primary-color(gray, 3);
+        margin-bottom: 20px;
+        isolation: isolate;
+
+        &::after {
+          position: absolute;
+          content: '';
+          left: -10px;
+          top: -5px;
+          background-color: primary-color(pink);
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          z-index: -1;
+        }
+      }
+
+      .service {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        &-name-price {
+          display: grid;
+          grid-template-columns: auto max-content;
+          gap: 5px;
+          width: 100%;
+          align-items: flex-end;
+
+          .name {
+            position: relative;
+            @include font-weight(semibold);
+            margin: 0;
+            overflow: hidden;
+
+            &::after {
+              position: absolute;
+              padding-left: 5px;
+              content: '........................................................................................................................................................';
+              @include font-weight(regular);
+              text-align: right;
+            }
+          }
+
+          .dots {
+            flex: 1;
+            overflow: hidden;
+            margin-inline: 10px;
+          }
+        }
+
+        .length {
+          @include rem(font-size, 14px);
+          font-style: italic;
+          color: primary-color(gray, 2);
+        }
+      }
+    }
+  }
+
+  .disclaimer {
+    color: primary-color(gray, 2);
+    font-style: italic;
+  }
+}
+
+.am-adv-select__item-price {
+  display: none !important;
+}

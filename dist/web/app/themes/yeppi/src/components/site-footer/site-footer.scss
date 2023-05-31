@@ -1,0 +1,100 @@
+.site-footer {
+  position: relative;
+  background-color: primary-color(slate);
+  color: white;
+  // height: 300px;
+  padding: 60px 20px 30px;
+  overflow: hidden;
+  isolation: isolate;
+
+  &-background {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 600px;
+    opacity: .03;
+    z-index: -1;
+  }
+
+  &-inner {
+    @include content-constraint(1200px);
+  }
+
+  .subscribe {
+    margin-bottom: 50px;
+    width: 100%;
+    @include content-constraint(500px);
+    text-align: center;
+
+    &-header {
+      margin-bottom: 30px;
+    }
+
+    .mailpoet_form {
+      padding: 0 !important;
+    }
+
+    .mailpoet_text {
+      display: block;
+      background: none;
+      color: white;
+      padding: 10px 20px !important;
+    }
+
+    .mailpoet_submit {
+      background-color: primary-color(pink);
+      color: white;
+      padding: 10px 12px !important;
+      cursor: pointer;
+
+      &:hover {
+        background-color: white;
+        color: primary-color(pink);
+      }
+    }
+  }
+
+  &-main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: flex-end;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid primary-color(gray, 2);
+
+    .logo {
+      max-width: 200px;
+      justify-self: center;
+    }
+  }
+
+  .policies {
+    @include rem(font-size, 14px);
+
+    & > * {
+
+      span {
+        color: primary-color(pink);
+      }
+    }
+
+    .divider {
+      margin: 0 5px;
+    }
+  }
+
+  &-bottom {
+    @include rem(font-size, 14px);
+    text-align: center;
+  }
+
+  &-hours {
+
+    ul li {
+      display: grid;
+      grid-template-columns: auto max-content;
+      max-width: 300px;
+    }
+  }
+}

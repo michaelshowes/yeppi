@@ -1,0 +1,70 @@
+.js-link-event {
+  cursor: pointer;
+}
+
+// Links
+//
+// Wrapper:
+// max-width: 700px;
+//
+// :hover    - Hover state
+// :focus    - Focus state
+// :active   - Active state
+// :disabled - Disabled state
+//
+// Markup:
+// <div class="wysiwyg-content">
+//   <p>This is a <a class="{{modifier_class}}" href="#">standard link</a> inside of WYSIWYG text. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+// </div>
+//
+// Weight: -99
+//
+// Styleguide Components.Links
+a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  transition: $ts $te;
+
+  @include hover {
+    color: primary-color(pink);
+  }
+
+  &.-inverse {
+    color: primary-color(slate);
+
+    @include hover {
+      color: primary-color(pink);
+    }
+  }
+
+  .wysiwyg-content & {
+
+    &:not(.button) {
+      display: inline;
+      border-bottom: 1px solid primary-color(pink);
+
+      @include hover {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    opacity: .5;
+    pointer-events: none;
+  }
+}
+
+.wysiwyg-content.-inverse {
+
+  a {
+    color: primary-color(slate);
+    transition: $ts $te;
+
+    @include hover {
+      color: primary-color(pink);
+    }
+  }
+}

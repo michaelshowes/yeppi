@@ -1,0 +1,41 @@
+{% import 'src/macros.twig' as macros %}
+
+<article class="thirds-split">
+  <div class="thirds-split-inner">
+
+    {% include "components/simple-header/simple-header.twig" %}
+
+    <div class="thirds-split-cards">
+
+      {% for card in component.cards %}
+        <div class="card">
+
+          {% if card.eyebrow or card.title %}
+            <div class="card-text">
+
+              {% if card.eyebrow %}
+                <div class="eyebrow">{{ card.eyebrow }}</div>
+              {% endif %}
+
+              {% if card.title %}
+                <h4 class="h4">{{ card.title }}</h4>
+              {% endif %}
+
+            </div>
+          {% endif %}
+
+
+          {% if card.image %}
+            <div class="card-img">{{ macros.image(card.image) }}</div>
+          {% endif %}
+
+        </div>
+      {% endfor %}
+
+    </div>
+
+    {% include "components/thirds-split/working-hours/working-hours.twig" %}
+
+  </div>
+</article>
+

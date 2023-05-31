@@ -1,0 +1,14 @@
+{% import 'src/macros.twig' as macros %}
+
+<article class="book">
+
+  <h2>Notice</h2>
+  <p>Due to a large influx of appointments during the holiday season, online booking is temporarily unavailable. Please call to make an appointment. Thank you</p>
+  <p class="h4">(703) 848-5357</p>
+
+  {% filter shortcodes %}
+    {# [ameliastepbooking] #}
+  {% endfilter %}
+
+</article>
+

@@ -1,0 +1,32 @@
+.page-container {
+  display: grid;
+  grid-template: auto 1fr auto / minmax(0, 1fr);
+  grid-template-areas: 'header' 'main' 'footer';
+  position: relative;
+  min-height: 100%;
+  // background: primary-color(white);
+  // background-color: #d3d2c7;
+  // padding: 0 30px;
+
+  // @include breakpoint(1921px) {
+  //   @include content-constraint(1920px);
+  //   box-shadow: 0 0 100px rgba(0, 0, 0, .1);
+  // }
+
+  & > .site-header {
+    grid-area: header;
+  }
+
+  & > main {
+    grid-area: main;
+
+    // NOTE: ALL direct descendants of this container MUST have a grid-column declared
+    .grid-container {
+      @extend %grid-columns;
+    }
+  }
+
+  & > .site-footer {
+    grid-area: footer;
+  }
+}
